@@ -1,0 +1,7 @@
+<div>
+  <ul>
+    <% @urls.each do |url| %>
+      <li><a href=<%= url.fullUrl %>><%= url.name %></a></li>
+    <% end %>
+  </ul>
+</div>
