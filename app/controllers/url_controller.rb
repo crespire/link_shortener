@@ -12,7 +12,6 @@ class UrlController < ApplicationController
 
   def visit
     @url = Url.find_by(slug: params[:slug])
-    puts @url
     redirect_to @url.fullUrl, allow_other_host: true
   end
 
