@@ -1,4 +1,4 @@
-class UrlController < ApplicationController
+class UrlsController < ApplicationController
   def index
     @urls = Url.all
   end
@@ -8,6 +8,7 @@ class UrlController < ApplicationController
   end
 
   def show
+    @url ||= Url.find(params[:id])
   end
 
   def visit
@@ -20,7 +21,7 @@ class UrlController < ApplicationController
     @url.slug ||=  SecureRandom.hex(8)
 
     if @url.save
-      redirect_to @url.fullUrl, allow_other_host: true
+      render :show, notice: 'Saved!'
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,9 +29,16 @@ class UrlController < ApplicationController
   end
 
   def edit
+    @url = Url.find(params[:id])
   end
 
   def update
+    @url = Url.find(params[:id])
+    if @url.update(url_params)
+      render :show, notice: 'Updated!'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

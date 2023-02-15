@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root "url#index" 
-  resources :url
+  resources :urls
   get '*slug', to: "url#visit"
 end

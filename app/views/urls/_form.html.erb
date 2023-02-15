@@ -1,0 +1,11 @@
+<div>
+  <%= form_with model: myurl do |f| %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+    <%= f.label :fullUrl, "Address" %>
+    <%= f.url_field :fullUrl %>
+    <%= f.label :slug, "Slug" %>
+    <%= f.text_field :slug %>
+    <%= f.submit "Shorten!" %>
+  <% end %>
+</div>

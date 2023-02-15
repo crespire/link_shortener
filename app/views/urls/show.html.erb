@@ -1,0 +1,7 @@
+<h1>Link Details</h1>
+
+Name: <%= @url.name %>
+Link: <a href="<%= @url.fullUrl %>"><%= @url.fullUrl %></a>
+<% if @url.slug %>
+  Slug: <%= @url.slug %>
+<% end %>
